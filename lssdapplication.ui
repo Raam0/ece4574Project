@@ -36,7 +36,7 @@
      <bool>false</bool>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="startpage">
      <widget class="QWidget" name="verticalLayoutWidget_2">
@@ -797,8 +797,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>60</width>
-                  <height>60</height>
+                  <width>70</width>
+                  <height>70</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -883,8 +883,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>60</width>
-                  <height>60</height>
+                  <width>70</width>
+                  <height>70</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -953,8 +953,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>60</width>
-                  <height>60</height>
+                  <width>70</width>
+                  <height>70</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -991,8 +991,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>60</width>
-                  <height>60</height>
+                  <width>70</width>
+                  <height>70</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1093,8 +1093,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>60</width>
-                  <height>60</height>
+                  <width>70</width>
+                  <height>70</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1163,8 +1163,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>60</width>
-                  <height>60</height>
+                  <width>70</width>
+                  <height>70</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1197,8 +1197,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>60</width>
-                  <height>60</height>
+                  <width>70</width>
+                  <height>70</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1343,8 +1343,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>60</width>
-                  <height>60</height>
+                  <width>70</width>
+                  <height>70</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1365,8 +1365,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>60</width>
-                  <height>60</height>
+                  <width>70</width>
+                  <height>70</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1419,8 +1419,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>60</width>
-                  <height>60</height>
+                  <width>70</width>
+                  <height>70</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1441,8 +1441,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>60</width>
-                  <height>60</height>
+                  <width>70</width>
+                  <height>70</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1511,8 +1511,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>60</width>
-                  <height>60</height>
+                  <width>70</width>
+                  <height>70</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1666,8 +1666,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>80</width>
-                  <height>80</height>
+                  <width>95</width>
+                  <height>95</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1688,8 +1688,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>80</width>
-                  <height>80</height>
+                  <width>95</width>
+                  <height>95</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1710,8 +1710,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>80</width>
-                  <height>80</height>
+                  <width>95</width>
+                  <height>95</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1764,8 +1764,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>80</width>
-                  <height>80</height>
+                  <width>95</width>
+                  <height>95</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1802,8 +1802,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>80</width>
-                  <height>80</height>
+                  <width>95</width>
+                  <height>95</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1840,8 +1840,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>80</width>
-                  <height>80</height>
+                  <width>95</width>
+                  <height>95</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1862,8 +1862,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>80</width>
-                  <height>80</height>
+                  <width>95</width>
+                  <height>95</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1900,8 +1900,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>80</width>
-                  <height>80</height>
+                  <width>95</width>
+                  <height>95</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1970,8 +1970,8 @@ Raam Udayappan</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>80</width>
-                  <height>80</height>
+                  <width>95</width>
+                  <height>95</height>
                  </size>
                 </property>
                 <property name="checkable">
