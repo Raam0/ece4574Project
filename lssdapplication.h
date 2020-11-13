@@ -65,6 +65,7 @@ private:
     QString name;
     int gender;
     QDate birthdate;
+    int age;
     QPair<int, int> height;
     int initialweight;
     QPixmap image;

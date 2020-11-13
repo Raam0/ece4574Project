@@ -174,6 +174,8 @@ void LSSDApplication::recordinputs() {
     }
     // birthdate
     birthdate = ui->birthdateinput->date();
+    // age
+    age = 2020 - birthdate.year();
     // height
     height.first = ui->heightftinput->value();
     height.second = ui->heightininput->value();
