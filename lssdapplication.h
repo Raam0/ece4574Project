@@ -5,36 +5,36 @@
 #include <QPixmap>
 #include <QDate>
 
+#include "workouts.h"
+#include "profile.h"
+#include "fooditems.h"
+
 /* ---> UPDATE IMAGE LOCATIONS <--- */
 // food images locations
-const QString applesim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/apple.jpg";
-const QString bananasim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/bananas.jpg";
-const QString beansim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/beans.jpg";
-const QString beefim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/beef.jpg";
-const QString breadim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/bread.jpg";
-const QString broccoliim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/broccoli.jpg";
-const QString carrotsim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/carrots.jpg";
-const QString chickenim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/chicken.jpg";
-const QString pastaim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/pasta.jpg";
-const QString potatoesim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/potatoes.jpg";
-const QString riceim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/rice.jpg";
-const QString seafoodim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/seafood.jpg";
+const QString applesim = ":/imag/Images/apple.jpg";
+const QString bananasim = ":/imag/Images/bananas.jpg";
+const QString beansim = ":/imag/Images/beans.jpg";
+const QString beefim = ":/imag/Images/beef.jpg";
+const QString breadim = ":/imag/Images/bread.jpg";
+const QString broccoliim = ":/imag/Images/broccoli.jpg";
+const QString carrotsim = ":/imag/Images/carrots.jpg";
+const QString chickenim = ":/imag/Images/chicken.jpg";
+const QString pastaim = ":/imag/Images/pasta.jpg";
+const QString potatoesim = ":/imag/Images/potatoes.jpg";
+const QString riceim = ":/imag/Images/rice.jpg";
+const QString seafoodim = ":/imag/Images/seafood.jpg";
 // workout images locations
-const QString cyclingim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/cycling.jpg";
-const QString dancingim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/dancing.jpg";
-const QString hikingim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/hiking.jpg";
-const QString runningim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/running.jpg";
-const QString sportsim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/sports.jpg";
-const QString swimmingim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/swimming.jpg";
-const QString walkingim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/walking.jpg";
-const QString weightliftingim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/weightlifting.jpg";
-const QString yogaim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/yoga.jpg";
+const QString cyclingim = ":/imag/Images/cycling.jpg";
+const QString dancingim = ":/imag/Images/dancing.jpg";
+const QString hikingim = ":/imag/Images/hiking.jpg";
+const QString runningim = ":/imag/Images/running.jpg";
+const QString sportsim = ":/imag/Images/sports.jpg";
+const QString swimmingim = ":/imag/Images/swimming.jpg";
+const QString walkingim = ":/imag/Images/walking.jpg";
+const QString weightliftingim = ":/imag/Images/weightlifting.jpg";
+const QString yogaim = ":/imag/Images/yoga.jpg";
 
 enum {Male, Female};
-enum {Apples, Bananas, Beans, Beef, Bread, Broccoli,
-     Carrots, Chicken, Pasta, Potatoes, Rice, Seafood};
-enum {Cycling, Dancing, Hiking, Running, Sports,
-     Swimming, Walking, WeightLifting, Yoga};
 enum {LoseWeight, MaintainWeight, GainWeight};
 
 QT_BEGIN_NAMESPACE
@@ -63,21 +63,24 @@ private slots:
 private:
     Ui::LSSDApplication *ui;
     QString name;
-    int gender;
+    QString gender;
     QDate birthdate;
     int age;
     QPair<int, int> height;
     int initialweight;
     QPixmap image;
-    QList<int> foodprefs;
-    QList<int> workoutprefs;
-    int goal;
+    QList<QString> foodprefs;
+    QList<QString> workoutprefs;
+    QString goal;
     int goalcalories;
     int consumedcalories;
     void createfoodprefslist();
     void createworkoutprefslist();
     void recordinputs();
     void createmainpage();
+    Workouts workoutsObj;
+    FoodItems foodItemsObj;
+    Profile profileObj;
 };
 
 #endif // LSSDAPPLICATION_H
