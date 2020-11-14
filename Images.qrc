@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/imag">
+        <file>Images/apple.jpg</file>
+        <file>Images/bananas.jpg</file>
+        <file>Images/beans.jpg</file>
+        <file>Images/beef.jpg</file>
+        <file>Images/bread.jpg</file>
+        <file>Images/broccoli.jpg</file>
+        <file>Images/carrots.jpg</file>
+        <file>Images/chicken.jpg</file>
+        <file>Images/cycling.jpg</file>
+        <file>Images/dancing.jpg</file>
+        <file>Images/hiking.jpg</file>
+        <file>Images/pasta.jpg</file>
+        <file>Images/potatoes.jpg</file>
+        <file>Images/rice.jpg</file>
+        <file>Images/running.jpg</file>
+        <file>Images/seafood.jpg</file>
+        <file>Images/sports.jpg</file>
+        <file>Images/swimming.jpg</file>
+        <file>Images/walking.jpg</file>
+        <file>Images/weightlifting.jpg</file>
+        <file>Images/yoga.jpg</file>
+    </qresource>
+</RCC>
