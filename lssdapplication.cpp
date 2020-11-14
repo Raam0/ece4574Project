@@ -27,13 +27,13 @@ LSSDApplication::LSSDApplication(QWidget *parent)
     ui->datainputbackground->hide();
     ui->errormsg->hide();
     name = "";
-    gender = Male;
+    gender = "Male";
     birthdate = QDate();
     height.first = 0;
     height.second = 0;
-    foodprefs = QList<int>();
-    workoutprefs = QList<int>();
-    goal = MaintainWeight;
+    foodprefs = QList<QString>();
+    workoutprefs = QList<QString>();
+    goal = "MaintainWeight";
     goalcalories = 2000;
     consumedcalories = 0;
 
@@ -90,74 +90,74 @@ LSSDApplication::~LSSDApplication()
 
 // performed when "next" button pressed (so that size can be checked to be >3)
 void LSSDApplication::createfoodprefslist() {
-    foodprefs = QList<int>(); // clears just in case user clicks "next" again (after going back, etc)
+    foodprefs.clear();; // clears just in case user clicks "next" again (after going back, etc)
     if (ui->applesbutton->isChecked()) {
-        foodprefs.push_back(Apples);
+        foodprefs.push_back("Apples");
     }
     if (ui->bananasbutton->isChecked()) {
-        foodprefs.push_back(Bananas);
+        foodprefs.push_back("Bananas");
     }
     if (ui->beansbutton->isChecked()) {
-        foodprefs.push_back(Beans);
+        foodprefs.push_back("Beans");
     }
     if (ui->beefbutton->isChecked()) {
-        foodprefs.push_back(Beef);
+        foodprefs.push_back("Beef");
     }
     if (ui->breadbutton->isChecked()) {
-        foodprefs.push_back(Bread);
+        foodprefs.push_back("Bread");
     }
     if (ui->broccolibutton->isChecked()) {
-        foodprefs.push_back(Broccoli);
+        foodprefs.push_back("Broccoli");
     }
     if (ui->carrotsbutton->isChecked()) {
-        foodprefs.push_back(Carrots);
+        foodprefs.push_back("Carrots");
     }
     if (ui->chickenbutton->isChecked()) {
-        foodprefs.push_back(Chicken);
+        foodprefs.push_back("Chicken");
     }
     if (ui->pastabutton->isChecked()) {
-        foodprefs.push_back(Pasta);
+        foodprefs.push_back("Pasta");
     }
     if (ui->potatoesbutton->isChecked()) {
-        foodprefs.push_back(Potatoes);
+        foodprefs.push_back("Potatoes");
     }
     if (ui->ricebutton->isChecked()) {
-        foodprefs.push_back(Rice);
+        foodprefs.push_back("Rice");
     }
     if (ui->seafoodbutton->isChecked()) {
-        foodprefs.push_back(Seafood);
+        foodprefs.push_back("Seafood");
     }
 }
 
 // performed when "next" button pressed (so that size can be checked to be >3)
 void LSSDApplication::createworkoutprefslist() {
-    workoutprefs = QList<int>(); // clears just in case user clicks "next" again (after going back, etc)
+    workoutprefs.clear(); // clears just in case user clicks "next" again (after going back, etc)
     if (ui->cyclingbutton->isChecked()) {
-        workoutprefs.push_back(Cycling);
+        workoutprefs.push_back("Cycling");
     }
     if (ui->dancingbutton->isChecked()) {
-        workoutprefs.push_back(Dancing);
+        workoutprefs.push_back("Dancing");
     }
     if (ui->hikingbutton->isChecked()) {
-        workoutprefs.push_back(Hiking);
+        workoutprefs.push_back("Hiking");
     }
     if (ui->runningbutton->isChecked()) {
-        workoutprefs.push_back(Running);
+        workoutprefs.push_back("Running");
     }
     if (ui->sportsbutton->isChecked()) {
-        workoutprefs.push_back(Sports);
+        workoutprefs.push_back("Sports");
     }
     if (ui->swimmingbutton->isChecked()) {
-        workoutprefs.push_back(Swimming);
+        workoutprefs.push_back("Swimming");
     }
     if (ui->walkingbutton->isChecked()) {
-        workoutprefs.push_back(Walking);
+        workoutprefs.push_back("Walking");
     }
     if (ui->weightliftingbutton->isChecked()) {
-        workoutprefs.push_back(WeightLifting);
+        workoutprefs.push_back("WeightLifting");
     }
     if (ui->yogabutton->isChecked()) {
-        workoutprefs.push_back(Yoga);
+        workoutprefs.push_back("Yoga");
     }
 }
 
@@ -167,10 +167,10 @@ void LSSDApplication::recordinputs() {
     name = ui->nameinput->text();
     // gender
     if (ui->malerb->isChecked()) {
-        gender = Male;
+        gender = "Male";
     }
     else {
-        gender = Female;
+        gender = "Female";
     }
     // birthdate
     birthdate = ui->birthdateinput->date();
@@ -183,14 +183,20 @@ void LSSDApplication::recordinputs() {
     initialweight = ui->weightinput->value();
     // goal
     if (ui->loseweightrb->isChecked()) {
-        goal = LoseWeight;
+        goal = "LoseWeight";
     }
     else if (ui->maintainweightrb->isChecked()) {
-        goal = MaintainWeight;
+        goal = "MaintainWeight";
     }
     else {
-        goal = GainWeight;
+        goal = "GainWeight";
     }
+    //Fill profile class
+    profileObj.setAge(age);
+    profileObj.setWeight(initialweight);
+    profileObj.setHeight(height);
+    profileObj.setGender(gender);
+    profileObj.setGoal(goal);
 }
 
 // performed when "finish" button pressed (final page of data input stack)
@@ -358,6 +364,7 @@ void LSSDApplication::on_currentweightnum_valueChanged(int arg1)
 void LSSDApplication::on_generatefoodsbutton_clicked()
 {
     // ---> generate food recommendations <---
+    QList<QString> generatedWorkouts = workoutsObj.GenerateWorkouts(workoutprefs, profileObj);
 }
 
 void LSSDApplication::on_generateworkoutsbutton_clicked()
