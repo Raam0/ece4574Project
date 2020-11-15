@@ -20,6 +20,9 @@ public:
 
 private:
     std::map<QString, int>  workoutData;
+    QString goal;
+    QList<QString> generatedWorkouts;
+    QList<QString> availableWorkouts;
 };
 
 #endif // WORKOUTS_H

@@ -33,24 +33,41 @@ int Workouts::CalcCaloriesBurned(int time, QString workout)
 }
 
 //NOTE//
-//Will try to factor in time into calculation, will ask natalie add UI features for time
+//Will try to factor in time into calculation, will ask natalie add UI features for time and
 //physical activity level
 QList<QString> Workouts::GenerateWorkouts(QList<QString> preferedWorkouts, Profile profile)
 {
-    QString goal = profile.getGoal();
-    
+    goal = profile.getGoal();
+    generatedWorkouts.clear(); // start new list
+    availableWorkouts = preferedWorkouts;
+
     if(goal == "LoseWeight")
     {
-        
+        LoseWeight();
     }
     if(goal == "MaintainWeight")
     {
-        
+        MaintainWeight();
     }
     else
     {
-        
+        GainWeight();
     }
-    return QList<QString>();
+    return generatedWorkouts;
         
+}
+//500 calories fewer
+void Workouts::LoseWeight()
+{
+
+}
+//maintain EER
+void Workouts::MaintainWeight()
+{
+
+}
+//500 calores more
+void Workouts::GainWeight()
+{
+
 }
