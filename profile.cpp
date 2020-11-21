@@ -2,8 +2,8 @@
 
 
 Profile::Profile():
-    age(0), heightMeters(0),
-    weightKilograms(0), BMI(0), EER(0),
+    age(0), heightMeters(0.0),
+    weightKilograms(0.0), BMI(0), EER(0),
     gender(""), goal("")
 {}
 

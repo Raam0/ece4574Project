@@ -20,8 +20,8 @@ public:
 
 private:
     int age;
-    int heightMeters;
-    int weightKilograms;
+    double heightMeters;
+    double weightKilograms;
     int BMI;
     int EER;
     QString gender;
