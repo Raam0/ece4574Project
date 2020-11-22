@@ -1,11 +1,11 @@
 #include "workouts.h"
 
-Workouts::Workouts()
+Workouts::Workouts() : goal(""), EER(0), duration(15), caloriesBurned(0)
 {
     //The integer value is the calories burned in 1 minute
     workoutData = {
         {"WeightLifting", 7}, {"Yoga", 5},
-        {"Hiking", 11}, {"Bicycing", 10},
+        {"Hiking", 11}, {"Cycling", 10},
         {"Running", 16}, {"Swimming", 12},
         {"Sports", 6}, {"Dancing", 7},
         {"Walking", 6}
@@ -35,39 +35,31 @@ int Workouts::CalcCaloriesBurned(int time, QString workout)
 //NOTE//
 //Will try to factor in time into calculation, will ask natalie add UI features for time and
 //physical activity level
-QList<QString> Workouts::GenerateWorkouts(QList<QString> preferedWorkouts, Profile profile)
+QList<QString> Workouts::GenerateWorkouts(QList<QString> preferedWorkouts)
 {
-    goal = profile.getGoal();
     generatedWorkouts.clear(); // start new list
     availableWorkouts = preferedWorkouts;
-
-    if(goal == "LoseWeight")
-    {
-        LoseWeight();
-    }
-    if(goal == "MaintainWeight")
-    {
-        MaintainWeight();
-    }
-    else
-    {
-        GainWeight();
-    }
-    return generatedWorkouts;
-        
+    PickWorkouts();
+    return generatedWorkouts;       
 }
+
 //500 calories fewer
-void Workouts::LoseWeight()
+void Workouts::PickWorkouts()
 {
+    caloriesBurned = 0;
 
+    for(int i = 0; i < availableWorkouts.size(); i++)
+    {
+        if(generatedWorkouts.size() < 3)
+        {
+            QString workout = availableWorkouts[i];
+            caloriesBurned += CalcCaloriesBurned(duration, workout);
+            generatedWorkouts.push_front(workout);
+        }
+    }
 }
-//maintain EER
-void Workouts::MaintainWeight()
-{
 
-}
-//500 calores more
-void Workouts::GainWeight()
+int Workouts::GetCaloriesBurned()
 {
-
+    return caloriesBurned;
 }
