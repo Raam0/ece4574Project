@@ -19,6 +19,7 @@ int FoodItems::GetFoodCalories(QString food)
 
 QList<QString> FoodItems::GenerateFoods(QList<QString> preferedFoods, Profile prof)
 {
+    EER = prof.getEER();
     generatedFoods.clear();
     availableFoods = preferedFoods;
     PickFoods();
