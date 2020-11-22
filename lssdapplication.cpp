@@ -364,7 +364,10 @@ void LSSDApplication::on_currentweightnum_valueChanged(int arg1)
 void LSSDApplication::on_generatefoodsbutton_clicked()
 {
     // ---> generate food recommendations <---
-    QList<QString> generatedWorkouts = workoutsObj.GenerateWorkouts(workoutprefs, profileObj);
+    QList<QString> generatedFoods = foodItemsObj.GenerateFoods(foodprefs, profileObj);
+    QList<QString> generatedWorkouts = workoutsObj.GenerateWorkouts(workoutprefs);
+    qDebug()<<generatedFoods;
+    qDebug()<<generatedWorkouts;
 }
 
 void LSSDApplication::on_generateworkoutsbutton_clicked()

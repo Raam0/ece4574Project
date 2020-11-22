@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QPixmap>
 #include <QDate>
+#include <QtDebug>
 
 #include "workouts.h"
 #include "profile.h"
