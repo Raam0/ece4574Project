@@ -1,14 +1,21 @@
 #include "fooditems.h"
 
-FoodItems::FoodItems() : EER(0), duration(15), caloriesConsumed(0)
+FoodItems::FoodItems()
 {
     foods = {
-        {"Apples", 95}, {"Bananas", 105},
-        {"Beans", 42}, {"Beef", 338},
-        {"Bread", 79}, {"Broccoli", 50},
-        {"Carrots", 30}, {"Chicken", 335},
-        {"Pasta", 75}, {"Potatoes", 110},
-        {"Rice", 206}, {"Seafood", 280}};
+        {"Omelet with hash browns", 536}, {"Scrambled eggs and bacon", 588},
+        {"Blueberry pancakes", 352}, {"Yogurt with fruit and granola", 376},
+        {"Oatmeal", 300}, {"Bowl of cereal", 320},
+        {"French toast", 498}, {"Bagel with cream cheese", 389},
+        {"Breakfast sandwich", 392}, {"Mac and Cheese", 699},
+        {"Ham and Cheese Sandwich", 352}, {"Grilled Cheese Sandwich", 392},
+        {"Ramen", 380}, {"Taco", 213},
+        {"Sushi", 99}, {"Pizza", 816},
+        {"Chicken Caesar Salad", 392}, {"BLT", 593},
+        {"Beef Stew", 186}, {"Chicken Pot Pie", 673},
+        {"Chicken Parmesan", 250}, {"Enchiladas", 323},
+        {"Lasagne", 284}, {"Pad Thai ", 375},
+        {"Spaghetti", 374}, {"Pork Chop", 295}, {"Baked Chicken", 282}};
 }
 
 int FoodItems::GetFoodCalories(QString food)
@@ -17,26 +24,4 @@ int FoodItems::GetFoodCalories(QString food)
     return mapPos->second;
 }
 
-QList<QString> FoodItems::GenerateFoods(QList<QString> preferedFoods, Profile prof)
-{
-    EER = prof.getEER();
-    generatedFoods.clear();
-    availableFoods = preferedFoods;
-    PickFoods();
-    return generatedFoods;
-}
 
-void FoodItems::PickFoods()
-{
-    caloriesConsumed = 0;
-
-    for(int i = 0; i < availableFoods.size(); i++)
-    {
-        if(generatedFoods.size() < 3)
-        {
-            QString foodItem = availableFoods[i];
-            caloriesConsumed += GetFoodCalories(foodItem);
-            generatedFoods.push_front(foodItem);
-        }
-    }
-}
