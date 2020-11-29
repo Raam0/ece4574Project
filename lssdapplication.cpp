@@ -121,6 +121,7 @@ void LSSDApplication::recordinputs() {
     profile.setHeight(height);
     // weight
     initialweight = ui->weightinput->value();
+    workouts.setWeight(ui->weightinput->value());
     profile.setWeight(initialweight);
     // workout preferences
     workouts.setAvailableWorkouts(workoutprefs);
