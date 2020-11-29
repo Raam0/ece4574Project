@@ -35,6 +35,12 @@ public:
     QList<QString> getRecommendations();
     QList<int> getTimeRecommendations();
 
+    void setName(QString s1);
+    void setWeight(int w1);
+
+    QString getName();
+    int getWeight();
+
     void saveData();
     int loadData();
 
@@ -48,6 +54,8 @@ private:
     //Timeworkouts is time to spend on each workout
     QList<int> timeWorkouts;
     //calories is their needed cals per day, plan is lose or maintain weight, and index is where to start reccs
+    QString name;
+    int weight;
     int index;
     int goal;
     int calories;

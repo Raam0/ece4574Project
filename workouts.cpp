@@ -30,6 +30,8 @@ Workouts::Workouts()
     index = 0;
     calories = 2000;
     goal = MaintainWeight;
+    name = "Raam";
+    weight = 150;
 }
 
 QString Workouts::getWorkoutImage(QString workout)
@@ -119,6 +121,12 @@ void Workouts::saveData()
     std::string s2 = std::to_string(index);
     char const *currIndex = s2.c_str();
 
+    std::string s3 = name.toUtf8().constData();
+    char const *currName = s3.c_str();
+
+    std::string s4 = std::to_string(weight);
+    char const *currWeight = s4.c_str();
+
     QFile file(QDir::current().absolutePath() + "/save.txt");
     if(file.open(QIODevice::WriteOnly | QIODevice::Text))
     {
@@ -129,6 +137,12 @@ void Workouts::saveData()
         file.write(newLine);
 
         file.write(currIndex);
+        file.write(newLine);
+
+        file.write(currName);
+        file.write(newLine);
+
+        file.write(currWeight);
         file.write(newLine);
 
         for (int i = 0; i < availableWorkouts.size(); ++i) {
@@ -145,11 +159,13 @@ int Workouts::loadData()
     int state = 0;
     QFile file(QDir::current().absolutePath() + "/save.txt");
     if (!file.open(QIODevice::ReadOnly)) {
-        qDebug() << "Failed to open";
+        qDebug() << "First time";
         availableWorkouts = { "temp"};
         calories = 0;
         goal = 0;
         index = 0;
+        name = "Raam";
+        weight = 150;
         saveData();
         return 1;
     }
@@ -175,6 +191,17 @@ int Workouts::loadData()
             else if(state == 3)
             {
                 int pos = line.indexOf(QChar('\r'));
+                name = line.left(pos);
+                state = 4;
+            }
+            else if(state == 4)
+            {
+                weight = line.toInt();
+                state = 5;
+            }
+            else if(state == 5)
+            {
+                int pos = line.indexOf(QChar('\r'));
                 availableWorkouts.push_back(line.left(pos));
             }
         }
@@ -182,4 +209,22 @@ int Workouts::loadData()
     return 0;
 }
 
+void Workouts::setName(QString s1)
+{
+    name = s1;
+}
 
+void Workouts::setWeight(int w1)
+{
+    weight = w1;
+}
+
+QString Workouts::getName()
+{
+    return name;
+}
+
+int Workouts::getWeight()
+{
+    return weight;
+}
