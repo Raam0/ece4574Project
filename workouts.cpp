@@ -16,7 +16,7 @@ Workouts::Workouts()
 
     //The integer value is the calories burned in 1 minute
     workoutcalories = {
-        {"WeightLifting", 7},
+        {"Weight Lifting", 7},
         {"Yoga", 5},
         {"Hiking", 11},
         {"Bicycing", 10},
@@ -27,7 +27,7 @@ Workouts::Workouts()
         {"Walking", 6}
     };
 
-    availableWorkouts = {"WeightLifting", "Yoga", "Hiking",
+    availableWorkouts = {"Weight Lifting", "Yoga", "Hiking",
                          "Bicycing", "Running", "Swimming",
                          "Sports", "Dancing", "Walking"};
     index = 0;
