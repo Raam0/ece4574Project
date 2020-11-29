@@ -19,7 +19,7 @@ Workouts::Workouts()
         {"Weight Lifting", 7},
         {"Yoga", 5},
         {"Hiking", 11},
-        {"Bicycing", 10},
+        {"Bicycling", 10},
         {"Running", 16},
         {"Swimming", 12},
         {"Sports", 6},
@@ -28,7 +28,7 @@ Workouts::Workouts()
     };
 
     availableWorkouts = {"Weight Lifting", "Yoga", "Hiking",
-                         "Bicycing", "Running", "Swimming",
+                         "Bicycling", "Running", "Swimming",
                          "Sports", "Dancing", "Walking"};
     index = 0;
     calories = 2000;
@@ -229,4 +229,9 @@ QString Workouts::getName()
 int Workouts::getWeight()
 {
     return weight;
+}
+
+int Workouts::getCals()
+{
+    return calories;
 }

@@ -44,6 +44,8 @@ public:
     void saveData();
     int loadData();
 
+    int getCals();
+
 private:
     std::map<QString, QString> workoutimages;
     std::map<QString, int>  workoutcalories;

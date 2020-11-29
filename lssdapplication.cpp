@@ -103,6 +103,7 @@ void LSSDApplication::createworkoutprefslist() {
 void LSSDApplication::recordinputs() {
     // name
     name = ui->nameinput->text();
+    workouts.setName(name);
     // gender
     if (ui->malerb->isChecked()) {
         profile.setGender("Male");
@@ -131,6 +132,7 @@ void LSSDApplication::recordinputs() {
         workouts.setGoal(MaintainWeight);
     }
     workouts.setCalories(profile.getEER());
+    workouts.saveData();
 }
 
 // performed when "finish" button pressed (final page of data input stack)
@@ -150,6 +152,15 @@ void LSSDApplication::on_startbutton_clicked()
     ui->datainputstack->setCurrentIndex(0);
     ui->datainputbackground->show();
     ui->mainstack->setCurrentIndex(1);
+    int newFile = workouts.loadData();
+    if(newFile == 0)
+    {
+        ui->datainputbackground->hide();
+        ui->mainstack->setCurrentIndex(2);
+        name = workouts.getName();
+        initialweight = workouts.getWeight();
+        createmainpage();
+    }
 }
 
 // for each page, checks for valid inputs
@@ -284,7 +295,6 @@ void LSSDApplication::updateplan(QString breakfast, QString lunch, QString dinne
     ui->dinnergraphic->setScene(dinnerscene);
     ui->dinnername->setText(dinner);
 
-    // workouts
     int inputcalories = foods.getFoodCalories(breakfast) +
                         foods.getFoodCalories(lunch) +
                         foods.getFoodCalories(dinner) +
