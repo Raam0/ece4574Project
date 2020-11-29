@@ -160,42 +160,42 @@ void LSSDApplication::on_nextbutton_clicked()
 
     // nameinputpage
     if (ui->datainputstack->currentIndex() == 0) {
-        //if (ui->nameinput->text() != "") {
+        if (ui->nameinput->text() != "") {
             ui->datainputstack->setCurrentIndex(1);
-        /*}
+        }
         else {
             ui->errormsg->setText("Please enter your name.");
             ui->errormsg->show();
-        }*/
+        }
 
     }
     // genderinputpage
     else if (ui->datainputstack->currentIndex() == 1) {
-        //if (ui->malerb->isChecked() ||
-        //        ui->femalerb->isChecked()) {
+        if (ui->malerb->isChecked() ||
+                ui->femalerb->isChecked()) {
             ui->datainputstack->setCurrentIndex(2);
-        /*}
+        }
         else {
             ui->errormsg->setText("Please select your gender.");
             ui->errormsg->show();
-        }*/
+        }
     }
     // birthdayinputpage
     else if (ui->datainputstack->currentIndex() == 2) {
-        //if (ui->birthdateinput->date() != QDate(2020, 1, 1)) {
+        if (ui->birthdateinput->date() != QDate(2020, 1, 1)) {
             ui->datainputstack->setCurrentIndex(3);
-        /*}
+        }
         else {
             ui->errormsg->setText("Please enter your birthdate.");
             ui->errormsg->show();
-        }*/
+        }
     }
     // measurementsinputpage
     else if (ui->datainputstack->currentIndex() == 3) {
-        //if (ui->heightftinput->value() != 0 &&
-        //        ui->weightinput->value() != 0) {
+        if (ui->heightftinput->value() != 0 &&
+                ui->weightinput->value() != 0) {
             ui->datainputstack->setCurrentIndex(5);
-        /*}
+        }
         else {
             if (ui->heightftinput->value() == 0 &&
                     ui->weightinput->value() == 0) {
@@ -208,7 +208,7 @@ void LSSDApplication::on_nextbutton_clicked()
                 ui->errormsg->setText("Please enter your weight.");
             }
             ui->errormsg->show();
-        }*/
+        }
 
     }
     // workoutprefspage
@@ -248,6 +248,9 @@ void LSSDApplication::on_backbutton_clicked()
     if (ui->datainputstack->currentIndex() == 0) {
         ui->datainputbackground->hide();
         ui->mainstack->setCurrentIndex(0);
+    }
+    else if (ui->datainputstack->currentIndex() == 5) {
+        ui->datainputstack->setCurrentIndex(3);
     }
     else {
         ui->datainputstack->setCurrentIndex(
