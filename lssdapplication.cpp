@@ -286,13 +286,29 @@ void LSSDApplication::on_createplanbutton_clicked()
 void LSSDApplication::updateplan(QString breakfast, QString lunch, QString dinner)
 {
     // foods
-    breakfastscene->addPixmap(foods.getFoodImage(breakfast));
+    QPixmap image;
+    image.load(foods.getFoodImage(breakfast));
+    image = image.scaledToHeight(148);
+    image = image.scaledToWidth(148);
+
+
+    breakfastscene->addPixmap(image);
     ui->breakfastgraphic->setScene(breakfastscene);
     ui->breakfastname->setText(breakfast);
-    lunchscene->addPixmap(foods.getFoodImage(lunch));
+
+    image.load(foods.getFoodImage(lunch));
+    image = image.scaledToHeight(148);
+    image = image.scaledToWidth(148);
+
+    lunchscene->addPixmap(image);
     ui->lunchgraphic->setScene(lunchscene);
     ui->lunchname->setText(lunch);
-    dinnerscene->addPixmap(foods.getFoodImage(dinner));
+
+    image.load(foods.getFoodImage(dinner));
+    image = image.scaledToHeight(148);
+    image = image.scaledToWidth(148);
+
+    dinnerscene->addPixmap(image);
     ui->dinnergraphic->setScene(dinnerscene);
     ui->dinnername->setText(dinner);
 
@@ -303,15 +319,32 @@ void LSSDApplication::updateplan(QString breakfast, QString lunch, QString dinne
     workouts.generateWorkouts(inputcalories);
     QList<QString> workoutslist = workouts.getRecommendations();
     QList<int> workoutsdurationslist = workouts.getTimeRecommendations();
-    workout1scene->addPixmap(workouts.getWorkoutImage(workoutslist.at(0)));
+
+
+    image.load(workouts.getWorkoutImage(workoutslist.at(0)));
+    image = image.scaledToHeight(148);
+    image = image.scaledToWidth(148);
+
+    workout1scene->addPixmap(image);
     ui->workout1graphic->setScene(workout1scene);
     ui->workout1name->setText(workoutslist.at(0));
     ui->workout1duration->setText(QString::number(workoutsdurationslist.at(0))+" minutes");
-    workout2scene->addPixmap(workouts.getWorkoutImage(workoutslist.at(1)));
+
+    image.load(workouts.getWorkoutImage(workoutslist.at(1)));
+    image = image.scaledToHeight(148);
+    image = image.scaledToWidth(148);
+
+    workout2scene->addPixmap(image);
     ui->workout2graphic->setScene(workout2scene);
+
     ui->workout2name->setText(workoutslist.at(1));
     ui->workout2duration->setText(QString::number(workoutsdurationslist.at(1))+" minutes");
-    workout3scene->addPixmap(workouts.getWorkoutImage(workoutslist.at(2)));
+
+    image.load(workouts.getWorkoutImage(workoutslist.at(2)));
+    image = image.scaledToHeight(148);
+    image = image.scaledToWidth(148);
+
+    workout3scene->addPixmap(image);
     ui->workout3graphic->setScene(workout3scene);
     ui->workout3name->setText(workoutslist.at(2));
     ui->workout3duration->setText(QString::number(workoutsdurationslist.at(2))+" minutes");
