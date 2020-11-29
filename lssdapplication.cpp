@@ -285,9 +285,12 @@ void LSSDApplication::updateplan(QString breakfast, QString lunch, QString dinne
     ui->dinnername->setText(dinner);
 
     // workouts
+    workouts = Workouts();
+    workouts.setAvailableWorkouts(workoutprefs);
     int inputcalories = foods.getFoodCalories(breakfast) +
                         foods.getFoodCalories(lunch) +
-                        foods.getFoodCalories(dinner);
+                        foods.getFoodCalories(dinner) +
+                        400; // snack allotment
     workouts.generateWorkouts(inputcalories);
     QList<QString> workoutslist = workouts.getRecommendations();
     QList<int> workoutsdurationslist = workouts.getTimeRecommendations();

@@ -36,7 +36,7 @@
      <bool>false</bool>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="startpage">
      <widget class="QWidget" name="verticalLayoutWidget_2">
@@ -189,7 +189,7 @@ Raam Udayappan</string>
           </font>
          </property>
          <property name="currentIndex">
-          <number>6</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="nameinputpage">
           <widget class="QWidget" name="verticalLayoutWidget_5">
@@ -303,10 +303,23 @@ Raam Udayappan</string>
              </widget>
             </item>
             <item>
-             <layout class="QVBoxLayout" name="genderoptionslayout">
-              <property name="leftMargin">
-               <number>25</number>
-              </property>
+             <layout class="QHBoxLayout" name="malerblayout">
+              <item>
+               <spacer name="malerbspacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>30</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
               <item>
                <widget class="QRadioButton" name="malerb">
                 <property name="sizePolicy">
@@ -326,6 +339,26 @@ Raam Udayappan</string>
                  <string>Male</string>
                 </property>
                </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="femalerblayout">
+              <item>
+               <spacer name="femalerbspacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>30</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
               </item>
               <item>
                <widget class="QRadioButton" name="femalerb">
@@ -1531,11 +1564,14 @@ Raam Udayappan</string>
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>501</width>
+             <width>508</width>
              <height>541</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="workoutprefslayout">
+            <property name="spacing">
+             <number>15</number>
+            </property>
             <property name="sizeConstraint">
              <enum>QLayout::SetDefaultConstraint</enum>
             </property>
@@ -1579,7 +1615,7 @@ Raam Udayappan</string>
                  <enum>Qt::Vertical</enum>
                 </property>
                 <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
+                 <enum>QSizePolicy::MinimumExpanding</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -1595,7 +1631,7 @@ Raam Udayappan</string>
                  <enum>Qt::Horizontal</enum>
                 </property>
                 <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
+                 <enum>QSizePolicy::MinimumExpanding</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -1611,7 +1647,7 @@ Raam Udayappan</string>
                  <enum>Qt::Vertical</enum>
                 </property>
                 <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
+                 <enum>QSizePolicy::MinimumExpanding</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -1643,7 +1679,7 @@ Raam Udayappan</string>
                  <enum>Qt::Vertical</enum>
                 </property>
                 <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
+                 <enum>QSizePolicy::MinimumExpanding</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -1660,6 +1696,18 @@ Raam Udayappan</string>
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string/>
@@ -1683,6 +1731,18 @@ Raam Udayappan</string>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string/>
                 </property>
@@ -1704,6 +1764,18 @@ Raam Udayappan</string>
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string/>
@@ -1759,6 +1831,18 @@ Raam Udayappan</string>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string/>
                 </property>
@@ -1779,7 +1863,7 @@ Raam Udayappan</string>
                  <enum>Qt::Vertical</enum>
                 </property>
                 <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
+                 <enum>QSizePolicy::MinimumExpanding</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -1796,6 +1880,18 @@ Raam Udayappan</string>
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string/>
@@ -1817,7 +1913,7 @@ Raam Udayappan</string>
                  <enum>Qt::Horizontal</enum>
                 </property>
                 <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
+                 <enum>QSizePolicy::MinimumExpanding</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -1834,6 +1930,18 @@ Raam Udayappan</string>
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string/>
@@ -1856,6 +1964,18 @@ Raam Udayappan</string>
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string/>
@@ -1895,13 +2015,25 @@ Raam Udayappan</string>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string/>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>95</width>
-                  <height>95</height>
+                  <width>100</width>
+                  <height>100</height>
                  </size>
                 </property>
                 <property name="checkable">
@@ -1924,22 +2056,6 @@ Raam Udayappan</string>
                  <set>Qt::AlignCenter</set>
                 </property>
                </widget>
-              </item>
-              <item row="0" column="1">
-               <spacer name="hspacer13w">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>15</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
               </item>
               <item row="4" column="0">
                <widget class="QLabel" name="yogalabel">
@@ -1965,6 +2081,18 @@ Raam Udayappan</string>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>125</width>
+                  <height>125</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string/>
                 </property>
@@ -1979,29 +2107,13 @@ Raam Udayappan</string>
                 </property>
                </widget>
               </item>
-              <item row="0" column="3">
-               <spacer name="hspacer23w">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>15</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
               <item row="3" column="3">
                <spacer name="hspacer22w">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
                 <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
+                 <enum>QSizePolicy::MinimumExpanding</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -2017,7 +2129,7 @@ Raam Udayappan</string>
                  <enum>Qt::Horizontal</enum>
                 </property>
                 <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
+                 <enum>QSizePolicy::MinimumExpanding</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -2033,7 +2145,7 @@ Raam Udayappan</string>
                  <enum>Qt::Vertical</enum>
                 </property>
                 <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
+                 <enum>QSizePolicy::MinimumExpanding</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -2049,7 +2161,7 @@ Raam Udayappan</string>
                  <enum>Qt::Vertical</enum>
                 </property>
                 <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
+                 <enum>QSizePolicy::MinimumExpanding</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -2107,6 +2219,38 @@ Raam Udayappan</string>
                 </property>
                </widget>
               </item>
+              <item row="0" column="3">
+               <spacer name="hspacer23w">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::MinimumExpanding</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>15</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="0" column="1">
+               <spacer name="hspacer13w">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::MinimumExpanding</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>15</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
              </layout>
             </item>
            </layout>
@@ -2127,18 +2271,18 @@ Raam Udayappan</string>
              <number>25</number>
             </property>
             <property name="topMargin">
-             <number>25</number>
+             <number>50</number>
             </property>
             <property name="rightMargin">
              <number>25</number>
             </property>
             <property name="bottomMargin">
-             <number>25</number>
+             <number>50</number>
             </property>
             <item>
              <widget class="QLabel" name="goalquerylabel">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+               <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
@@ -2159,12 +2303,31 @@ Raam Udayappan</string>
              </widget>
             </item>
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout">
-              <property name="leftMargin">
-               <number>25</number>
-              </property>
+             <layout class="QHBoxLayout" name="loseweightrblayout">
+              <item>
+               <spacer name="loseweightrbspacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>30</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
               <item>
                <widget class="QRadioButton" name="loseweightrb">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="font">
                  <font>
                   <family>Georgia</family>
@@ -2177,8 +2340,34 @@ Raam Udayappan</string>
                 </property>
                </widget>
               </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="maintainweightrblayout">
+              <item>
+               <spacer name="maintainweightrbspacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>30</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
               <item>
                <widget class="QRadioButton" name="maintainweightrb">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="font">
                  <font>
                   <family>Georgia</family>
@@ -2458,6 +2647,9 @@ weight</string>
            <property name="text">
             <string/>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
            <property name="wordWrap">
             <bool>true</bool>
            </property>
@@ -2505,6 +2697,9 @@ weight</string>
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
@@ -2569,6 +2764,9 @@ weight</string>
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
@@ -2735,7 +2933,7 @@ weight</string>
             </font>
            </property>
            <property name="text">
-            <string>Option 3</string>
+            <string>Option 3:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -2770,7 +2968,7 @@ weight</string>
             </font>
            </property>
            <property name="text">
-            <string>Option 2</string>
+            <string>Option 2:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -2799,7 +2997,7 @@ weight</string>
             </font>
            </property>
            <property name="text">
-            <string>Option 1</string>
+            <string>Option 1:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>

@@ -27,6 +27,9 @@ Workouts::Workouts()
         {"Walking", 6}
     };
 
+    availableWorkouts = {"WeightLifting", "Yoga", "Hiking",
+                         "Bicycing", "Running", "Swimming",
+                         "Sports", "Dancing", "Walking"};
     index = 0;
     calories = 2000;
     goal = MaintainWeight;
@@ -54,7 +57,6 @@ void Workouts::setCalories(int c1)
     calories = c1;
 }
 
-
 //Algorithm for generating 3 recommended workouts
 void Workouts::generateWorkouts(int currentCals)
 {
@@ -65,10 +67,10 @@ void Workouts::generateWorkouts(int currentCals)
     //target calories to be burned through exercise
     int target = currentCals - calories;
 
-    //If plan = 0, they chose to lose weight, target is 500 below the Goal
+    //If plan = 0, they chose to lose weight
     if(goal == LoseWeight)
     {
-        target -= 500;
+        target += 500;
     }
 
     //If they are already at less calories than the target, reccomend no exercise (0 minutes for each exercise)
