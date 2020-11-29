@@ -47,6 +47,11 @@ void Workouts::setGoal(int g1)
     goal = g1;
 }
 
+void Workouts::setCalories(int c1)
+{
+    calories = c1;
+}
+
 
 //Algorithm for generating 3 recommended workouts
 void Workouts::generateWorkouts(int currentCals)

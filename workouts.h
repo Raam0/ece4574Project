@@ -30,6 +30,7 @@ public:
     QString getWorkoutImage(QString workout);
     void setAvailableWorkouts(QList<QString> q1);
     void setGoal(int g1);
+    void setCalories(int c1);
     void generateWorkouts(int CurrentCals);
     QList<QString> getRecommendations();
     QList<int> getTimeRecommendations();

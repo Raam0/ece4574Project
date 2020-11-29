@@ -52,7 +52,7 @@ FoodItems::FoodItems()
     foodcalories = {
         {"Omelet with hash browns", 536},
         {"Scrambled eggs and bacon", 588},
-        {"Blueberry pancakes", 352},
+        {"2 blueberry pancakes", 352},
         {"Yogurt parfait", 376},
         {"Oatmeal", 300},
         {"Bowl of cereal", 320},

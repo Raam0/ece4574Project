@@ -130,6 +130,7 @@ void LSSDApplication::recordinputs() {
     else {
         workouts.setGoal(MaintainWeight);
     }
+    workouts.setCalories(profile.getEER());
 }
 
 // performed when "finish" button pressed (final page of data input stack)
