@@ -2,44 +2,19 @@
 #define LSSDAPPLICATION_H
 
 #include <QMainWindow>
+#include <QObject>
+#include <QGraphicsScene>
 #include <QPixmap>
 #include <QDate>
-#include <QtDebug>
 
-#include "workouts.h"
 #include "profile.h"
 #include "fooditems.h"
-
-/* ---> UPDATE IMAGE LOCATIONS <--- */
-// food images locations
-const QString applesim = ":/imag/Images/apple.jpg";
-const QString bananasim = ":/imag/Images/bananas.jpg";
-const QString beansim = ":/imag/Images/beans.jpg";
-const QString beefim = ":/imag/Images/beef.jpg";
-const QString breadim = ":/imag/Images/bread.jpg";
-const QString broccoliim = ":/imag/Images/broccoli.jpg";
-const QString carrotsim = ":/imag/Images/carrots.jpg";
-const QString chickenim = ":/imag/Images/chicken.jpg";
-const QString pastaim = ":/imag/Images/pasta.jpg";
-const QString potatoesim = ":/imag/Images/potatoes.jpg";
-const QString riceim = ":/imag/Images/rice.jpg";
-const QString seafoodim = ":/imag/Images/seafood.jpg";
-// workout images locations
-const QString cyclingim = ":/imag/Images/cycling.jpg";
-const QString dancingim = ":/imag/Images/dancing.jpg";
-const QString hikingim = ":/imag/Images/hiking.jpg";
-const QString runningim = ":/imag/Images/running.jpg";
-const QString sportsim = ":/imag/Images/sports.jpg";
-const QString swimmingim = ":/imag/Images/swimming.jpg";
-const QString walkingim = ":/imag/Images/walking.jpg";
-const QString weightliftingim = ":/imag/Images/weightlifting.jpg";
-const QString yogaim = ":/imag/Images/yoga.jpg";
-
-enum {Male, Female};
-enum {LoseWeight, MaintainWeight, GainWeight};
+#include "workouts.h"
+#include "createplan.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class LSSDApplication; }
+namespace Ui { class CreatePlan; }
 QT_END_NAMESPACE
 
 class LSSDApplication : public QMainWindow
@@ -50,38 +25,32 @@ public:
     LSSDApplication(QWidget *parent = nullptr);
     ~LSSDApplication();
 
+public slots:
+    void updateplan(QString breakfast, QString lunch, QString dinner);
+
 private slots:
     // slots for data input
     void on_startbutton_clicked();
     void on_nextbutton_clicked();
     void on_backbutton_clicked();
     // slots for main page
-    void on_caloriesinputbutton_clicked();
-    void on_currentweightnum_valueChanged(int arg1);
-    void on_generatefoodsbutton_clicked();
-    void on_generateworkoutsbutton_clicked();
+    void on_createplanbutton_clicked();
+    void on_currentweightvalue_valueChanged(int arg1);
 
 private:
     Ui::LSSDApplication *ui;
-    QString name;
-    QString gender;
-    QDate birthdate;
-    int age;
-    QPair<int, int> height;
-    int initialweight;
     QPixmap image;
-    QList<QString> foodprefs;
+    Profile profile;
+    QString name;
+    int initialweight;
     QList<QString> workoutprefs;
-    QString goal;
-    int goalcalories;
-    int consumedcalories;
-    void createfoodprefslist();
     void createworkoutprefslist();
     void recordinputs();
     void createmainpage();
-    Workouts workoutsObj;
-    FoodItems foodItemsObj;
-    Profile profileObj;
+    FoodItems foods;
+    QGraphicsScene *breakfastscene, *lunchscene, *dinnerscene;
+    Workouts workouts;
+    QGraphicsScene *workout1scene, *workout2scene, *workout3scene;
 };
 
 #endif // LSSDAPPLICATION_H

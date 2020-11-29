@@ -16,6 +16,7 @@
  *      2: main page
  */
 
+
 LSSDApplication::LSSDApplication(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::LSSDApplication)
@@ -26,42 +27,11 @@ LSSDApplication::LSSDApplication(QWidget *parent)
     ui->datainputstack->setCurrentIndex(0);
     ui->datainputbackground->hide();
     ui->errormsg->hide();
-    name = "";
-    gender = "Male";
-    birthdate = QDate();
-    height.first = 0;
-    height.second = 0;
-    foodprefs = QList<QString>();
-    workoutprefs = QList<QString>();
-    goal = "MaintainWeight";
-    goalcalories = 2000;
-    consumedcalories = 0;
 
-    // add pictures to buttons for food preferences page
-    image.load(applesim);
-    ui->applesbutton->setIcon(image);
-    image.load(bananasim);
-    ui->bananasbutton->setIcon(image);
-    image.load(beansim);
-    ui->beansbutton->setIcon(image);
-    image.load(beefim);
-    ui->beefbutton->setIcon(image);
-    image.load(breadim);
-    ui->breadbutton->setIcon(image);
-    image.load(broccoliim);
-    ui->broccolibutton->setIcon(image);
-    image.load(carrotsim);
-    ui->carrotsbutton->setIcon(image);
-    image.load(chickenim);
-    ui->chickenbutton->setIcon(image);
-    image.load(pastaim);
-    ui->pastabutton->setIcon(image);
-    image.load(potatoesim);
-    ui->potatoesbutton->setIcon(image);
-    image.load(riceim);
-    ui->ricebutton->setIcon(image);
-    image.load(seafoodim);
-    ui->seafoodbutton->setIcon(image);
+    profile = Profile();
+    name = "";
+    workoutprefs = QList<QString>();
+
     // add pictures to buttons for workout preferences page
     image.load(cyclingim);
     ui->cyclingbutton->setIcon(image);
@@ -81,6 +51,15 @@ LSSDApplication::LSSDApplication(QWidget *parent)
     ui->weightliftingbutton->setIcon(image);
     image.load(yogaim);
     ui->yogabutton->setIcon(image);
+
+    foods = FoodItems();
+    breakfastscene = new QGraphicsScene;
+    lunchscene = new QGraphicsScene;
+    dinnerscene = new QGraphicsScene;
+    workouts = Workouts();
+    workout1scene = new QGraphicsScene;
+    workout2scene = new QGraphicsScene;
+    workout3scene = new QGraphicsScene;
 }
 
 LSSDApplication::~LSSDApplication()
@@ -89,51 +68,10 @@ LSSDApplication::~LSSDApplication()
 }
 
 // performed when "next" button pressed (so that size can be checked to be >3)
-void LSSDApplication::createfoodprefslist() {
-    foodprefs.clear();; // clears just in case user clicks "next" again (after going back, etc)
-    if (ui->applesbutton->isChecked()) {
-        foodprefs.push_back("Apples");
-    }
-    if (ui->bananasbutton->isChecked()) {
-        foodprefs.push_back("Bananas");
-    }
-    if (ui->beansbutton->isChecked()) {
-        foodprefs.push_back("Beans");
-    }
-    if (ui->beefbutton->isChecked()) {
-        foodprefs.push_back("Beef");
-    }
-    if (ui->breadbutton->isChecked()) {
-        foodprefs.push_back("Bread");
-    }
-    if (ui->broccolibutton->isChecked()) {
-        foodprefs.push_back("Broccoli");
-    }
-    if (ui->carrotsbutton->isChecked()) {
-        foodprefs.push_back("Carrots");
-    }
-    if (ui->chickenbutton->isChecked()) {
-        foodprefs.push_back("Chicken");
-    }
-    if (ui->pastabutton->isChecked()) {
-        foodprefs.push_back("Pasta");
-    }
-    if (ui->potatoesbutton->isChecked()) {
-        foodprefs.push_back("Potatoes");
-    }
-    if (ui->ricebutton->isChecked()) {
-        foodprefs.push_back("Rice");
-    }
-    if (ui->seafoodbutton->isChecked()) {
-        foodprefs.push_back("Seafood");
-    }
-}
-
-// performed when "next" button pressed (so that size can be checked to be >3)
 void LSSDApplication::createworkoutprefslist() {
-    workoutprefs.clear(); // clears just in case user clicks "next" again (after going back, etc)
+    workoutprefs = QList<QString>(); // clears just in case user clicks "next" again (after going back, etc)
     if (ui->cyclingbutton->isChecked()) {
-        workoutprefs.push_back("Cycling");
+        workoutprefs.push_back("Bicycling");
     }
     if (ui->dancingbutton->isChecked()) {
         workoutprefs.push_back("Dancing");
@@ -154,7 +92,7 @@ void LSSDApplication::createworkoutprefslist() {
         workoutprefs.push_back("Walking");
     }
     if (ui->weightliftingbutton->isChecked()) {
-        workoutprefs.push_back("WeightLifting");
+        workoutprefs.push_back("Weight Lifting");
     }
     if (ui->yogabutton->isChecked()) {
         workoutprefs.push_back("Yoga");
@@ -167,49 +105,40 @@ void LSSDApplication::recordinputs() {
     name = ui->nameinput->text();
     // gender
     if (ui->malerb->isChecked()) {
-        gender = "Male";
+        profile.setGender("Male");
     }
     else {
-        gender = "Female";
+        profile.setGender("Female");
     }
-    // birthdate
-    birthdate = ui->birthdateinput->date();
-    // age
-    age = 2020 - birthdate.year();
+    // birthdate & age
+    QDate birthdate = ui->birthdateinput->date();
+    profile.setAge(2020-birthdate.year());
     // height
+    QPair<int, int> height;
     height.first = ui->heightftinput->value();
     height.second = ui->heightininput->value();
+    profile.setHeight(height);
     // weight
     initialweight = ui->weightinput->value();
+    profile.setWeight(initialweight);
+    // workout preferences
+    workouts.setAvailableWorkouts(workoutprefs);
     // goal
     if (ui->loseweightrb->isChecked()) {
-        goal = "LoseWeight";
-    }
-    else if (ui->maintainweightrb->isChecked()) {
-        goal = "MaintainWeight";
+        workouts.setGoal(LoseWeight);
     }
     else {
-        goal = "GainWeight";
+        workouts.setGoal(MaintainWeight);
     }
-    //Fill profile class
-    profileObj.setAge(age);
-    profileObj.setWeight(initialweight);
-    profileObj.setHeight(height);
-    profileObj.setGender(gender);
-    profileObj.setGoal(goal);
 }
 
 // performed when "finish" button pressed (final page of data input stack)
 void LSSDApplication::createmainpage() {
     ui->namelabel->setText("Hi " + name + "!");
-    // ---> calculate goal calories from gender, height, goal, etc info <---
-    ui->goalcaloriesnum->setValue(goalcalories);
-    ui->todaycaloriesnum->setValue(0);
-    ui->remainingcaloriesnum->setValue(goalcalories);
-    ui->caloriesprogressbar->setValue(0);
-    ui->initialweightnum->setValue(initialweight);
-    ui->currentweightnum->setValue(initialweight);
-    ui->weightchangenum->setValue(0);
+    // calculate goal net calories
+    ui->initialweightvalue->setValue(initialweight);
+    ui->currentweightvalue->setValue(initialweight);
+    ui->weightchangevalue->setValue(0);
 }
 
 
@@ -231,42 +160,42 @@ void LSSDApplication::on_nextbutton_clicked()
 
     // nameinputpage
     if (ui->datainputstack->currentIndex() == 0) {
-        if (ui->nameinput->text() != "") {
+        //if (ui->nameinput->text() != "") {
             ui->datainputstack->setCurrentIndex(1);
-        }
+        /*}
         else {
             ui->errormsg->setText("Please enter your name.");
             ui->errormsg->show();
-        }
+        }*/
 
     }
     // genderinputpage
     else if (ui->datainputstack->currentIndex() == 1) {
-        if (ui->malerb->isChecked() ||
-                ui->femalerb->isChecked()) {
+        //if (ui->malerb->isChecked() ||
+        //        ui->femalerb->isChecked()) {
             ui->datainputstack->setCurrentIndex(2);
-        }
+        /*}
         else {
             ui->errormsg->setText("Please select your gender.");
             ui->errormsg->show();
-        }
+        }*/
     }
     // birthdayinputpage
     else if (ui->datainputstack->currentIndex() == 2) {
-        if (ui->birthdateinput->date() != QDate(2020, 1, 1)) {
+        //if (ui->birthdateinput->date() != QDate(2020, 1, 1)) {
             ui->datainputstack->setCurrentIndex(3);
-        }
+        /*}
         else {
             ui->errormsg->setText("Please enter your birthdate.");
             ui->errormsg->show();
-        }
+        }*/
     }
     // measurementsinputpage
     else if (ui->datainputstack->currentIndex() == 3) {
-        if (ui->heightftinput->value() != 0 &&
-                ui->weightinput->value() != 0) {
-            ui->datainputstack->setCurrentIndex(4);
-        }
+        //if (ui->heightftinput->value() != 0 &&
+        //        ui->weightinput->value() != 0) {
+            ui->datainputstack->setCurrentIndex(5);
+        /*}
         else {
             if (ui->heightftinput->value() == 0 &&
                     ui->weightinput->value() == 0) {
@@ -279,19 +208,8 @@ void LSSDApplication::on_nextbutton_clicked()
                 ui->errormsg->setText("Please enter your weight.");
             }
             ui->errormsg->show();
-        }
+        }*/
 
-    }
-    // foodprefspage
-    else if (ui->datainputstack->currentIndex() == 4) {
-        createfoodprefslist();
-        if (foodprefs.size() >= 3) {
-            ui->datainputstack->setCurrentIndex(5);
-        }
-        else {
-            ui->errormsg->setText("Please choose three options.");
-            ui->errormsg->show();
-        }
     }
     // workoutprefspage
     else if (ui->datainputstack->currentIndex() == 5) {
@@ -308,8 +226,7 @@ void LSSDApplication::on_nextbutton_clicked()
     // goalinputpage
     else if (ui->datainputstack->currentIndex() == 6) {
         if (ui->loseweightrb->isChecked() ||
-                ui->maintainweightrb->isChecked() ||
-                ui->gainweightrb->isChecked()) {
+                ui->maintainweightrb->isChecked()) {
             ui->datainputbackground->hide();
             recordinputs();
             createmainpage();
@@ -343,32 +260,50 @@ void LSSDApplication::on_backbutton_clicked()
 
 
 // SLOTS FOR MAIN PAGE
-
-// adds input to "calories consumed so far today"
-// calculates "remaining calories today"
-// calculates percentage of calories consumed for the progress bar
-void LSSDApplication::on_caloriesinputbutton_clicked()
+void LSSDApplication::on_createplanbutton_clicked()
 {
-    consumedcalories = consumedcalories + ui->caloriesinput->value();
-    ui->todaycaloriesnum->setValue(consumedcalories);
-    ui->remainingcaloriesnum->setValue(goalcalories - consumedcalories);
-    ui->caloriesprogressbar->setValue(double(consumedcalories) / goalcalories * 100);
+    CreatePlan * createplanwindow = new CreatePlan;
+    QObject::connect(createplanwindow, SIGNAL(mealplanchanged(QString, QString, QString)), this, SLOT(updateplan(QString, QString, QString)));
+    createplanwindow->show();
 }
 
-// updates "weight change" value
-void LSSDApplication::on_currentweightnum_valueChanged(int arg1)
+void LSSDApplication::updateplan(QString breakfast, QString lunch, QString dinner)
 {
-    ui->weightchangenum->setValue(arg1 - initialweight);
+    // foods
+    breakfastscene->addPixmap(foods.getFoodImage(breakfast));
+    ui->breakfastgraphic->setScene(breakfastscene);
+    ui->breakfastname->setText(breakfast);
+    lunchscene->addPixmap(foods.getFoodImage(lunch));
+    ui->lunchgraphic->setScene(lunchscene);
+    ui->lunchname->setText(lunch);
+    dinnerscene->addPixmap(foods.getFoodImage(dinner));
+    ui->dinnergraphic->setScene(dinnerscene);
+    ui->dinnername->setText(dinner);
+
+    // workouts
+    int inputcalories = foods.getFoodCalories(breakfast) +
+                        foods.getFoodCalories(lunch) +
+                        foods.getFoodCalories(dinner);
+    workouts.generateWorkouts(inputcalories);
+    QList<QString> workoutslist = workouts.getRecommendations();
+    QList<int> workoutsdurationslist = workouts.getTimeRecommendations();
+    workout1scene->addPixmap(workouts.getWorkoutImage(workoutslist.at(0)));
+    ui->workout1graphic->setScene(workout1scene);
+    ui->workout1name->setText(workoutslist.at(0));
+    ui->workout1duration->setText(QString::number(workoutsdurationslist.at(0))+" minutes");
+    workout2scene->addPixmap(workouts.getWorkoutImage(workoutslist.at(1)));
+    ui->workout2graphic->setScene(workout2scene);
+    ui->workout2name->setText(workoutslist.at(1));
+    ui->workout2duration->setText(QString::number(workoutsdurationslist.at(1))+" minutes");
+    workout3scene->addPixmap(workouts.getWorkoutImage(workoutslist.at(2)));
+    ui->workout3graphic->setScene(workout3scene);
+    ui->workout3name->setText(workoutslist.at(2));
+    ui->workout3duration->setText(QString::number(workoutsdurationslist.at(2))+" minutes");
 }
 
-void LSSDApplication::on_generatefoodsbutton_clicked()
+void LSSDApplication::on_currentweightvalue_valueChanged(int arg1)
 {
-    // ---> generate food recommendations <---
-    QList<QString> generatedWorkouts = workoutsObj.GenerateWorkouts(workoutprefs);
-    qDebug()<<generatedWorkouts;
+    ui->weightchangevalue->setValue(arg1-initialweight);
 }
 
-void LSSDApplication::on_generateworkoutsbutton_clicked()
-{
-    // ---> generate workout recommendations <---
-}
+

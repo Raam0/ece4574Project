@@ -2,10 +2,15 @@
 
 
 Profile::Profile():
-    age(0), heightMeters(0.0),
-    weightKilograms(0.0), BMI(0), EER(0),
-    gender(""), goal("")
+    gender("Male"), age(0), heightMeters(0.0),
+    weightKilograms(0.0), BMI(0), EER(0)
 {}
+
+
+void Profile::setGender(QString selectedGender)
+{
+    gender = selectedGender;
+}
 
 void Profile::setAge(int selectedAge)
 {
@@ -22,20 +27,6 @@ void Profile::setWeight(int selectedWeight)
     weightKilograms = selectedWeight * 0.45359237;
 }
 
-void Profile::setGender(QString selectedGender)
-{
-    gender = selectedGender;
-}
-
-void Profile::setGoal(QString selectedGoal)
-{
-    goal = selectedGoal;
-}
-
-QString Profile::getGoal()
-{
-    return goal;
-}
 
 int Profile::getEER()
 {
@@ -106,11 +97,4 @@ void Profile::getEERfemale()
         }
     }
 }
-
-
-
-
-
-
-
 

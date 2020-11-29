@@ -2,33 +2,69 @@
 
 Workouts::Workouts()
 {
+    workoutimages = {
+        {"Weight Lifting", weightliftingim},
+        {"Yoga", yogaim},
+        {"Hiking", hikingim},
+        {"Bicycling", cyclingim},
+        {"Running", runningim},
+        {"Swimming", swimmingim},
+        {"Sports", sportsim},
+        {"Dancing", dancingim},
+        {"Walking", walkingim}
+    };
+
     //The integer value is the calories burned in 1 minute
-    workoutData = {
-        {"WeightLifting", 7}, {"Yoga", 5},
-        {"Hiking", 11}, {"Bicycing", 10},
-        {"Running", 16}, {"Swimming", 12},
-        {"Sports", 6}, {"Dancing", 7},
+    workoutcalories = {
+        {"WeightLifting", 7},
+        {"Yoga", 5},
+        {"Hiking", 11},
+        {"Bicycing", 10},
+        {"Running", 16},
+        {"Swimming", 12},
+        {"Sports", 6},
+        {"Dancing", 7},
         {"Walking", 6}
     };
+
+    index = 0;
+    calories = 2000;
+    goal = MaintainWeight;
 }
 
-//Algorithm for generating 3 reccomended workouts
-void Workouts::GenerateWorkouts(int CurrentCals)
+QString Workouts::getWorkoutImage(QString workout)
 {
-    //clear all previous reccomendations
+    return workoutimages.find(workout)->second;
+}
+
+void Workouts::setAvailableWorkouts(QList<QString> q1)
+{
+    availableWorkouts = q1;
+}
+
+void Workouts::setGoal(int g1)
+{
+    goal = g1;
+}
+
+
+//Algorithm for generating 3 recommended workouts
+void Workouts::generateWorkouts(int currentCals)
+{
+    //clear all previous recommendations
     generatedWorkouts.clear();
     timeWorkouts.clear();
 
     //target calories to be burned through exercise
-    int target = CurrentCals - calories;
+    int target = currentCals - calories;
 
     //If plan = 0, they chose to lose weight, target is 500 below the Goal
-    if(plan == 0)
+    if(goal == LoseWeight)
     {
         target -= 500;
     }
 
-    //If they are already at less Calories than the target, reccomend no exercise (0 minutes for each exercise)
+    //If they are already at less calories than the target, reccomend no exercise (0 minutes for each exercise)
     if(target <= 0)
     {
         for(int i = 0; i < 3; i++)
@@ -45,12 +81,22 @@ void Workouts::GenerateWorkouts(int CurrentCals)
         for(int i = 0; i < 3; i++)
         {
             generatedWorkouts.push_back(availableWorkouts[index]);
-            timeWorkouts.push_back(target/workoutData[availableWorkouts[index]]);
+            timeWorkouts.push_back(target/workoutcalories[availableWorkouts[index]]);
             index++;
             if(index == availableWorkouts.size())
                 index = 0;
         }
     }
+}
+
+QList<QString> Workouts::getRecommendations()
+{
+    return generatedWorkouts;
+}
+
+QList<int> Workouts::getTimeRecommendations()
+{
+    return timeWorkouts;
 }
 
 void Workouts::saveData()
@@ -62,7 +108,7 @@ void Workouts::saveData()
     std::string s = std::to_string(calories);
     char const *cals = s.c_str();
 
-    std::string s1 = std::to_string(plan);
+    std::string s1 = std::to_string(goal);
     char const *currPlan = s1.c_str();
 
     std::string s2 = std::to_string(index);
@@ -97,7 +143,7 @@ int Workouts::loadData()
         qDebug() << "Failed to open";
         availableWorkouts = { "temp"};
         calories = 0;
-        plan = 0;
+        goal = 0;
         index = 0;
         saveData();
         return 1;
@@ -113,7 +159,7 @@ int Workouts::loadData()
             }
             else if(state == 1)
             {
-                plan = line.toInt();
+                goal = line.toInt();
                 state = 2;
             }
             else if(state == 2)
@@ -129,36 +175,6 @@ int Workouts::loadData()
         }
     }
     return 0;
-}
-
-QList<QString> Workouts::getReccomendations()
-{
-    return generatedWorkouts;
-}
-
-QList<int> Workouts::getTimeReccomendations()
-{
-    return timeWorkouts;
-}
-
-void Workouts::setAvailableWorkouts(QList<QString> q1)
-{
-    availableWorkouts = q1;
-}
-
-void Workouts::setCalories(int c1)
-{
-    calories = c1;
-}
-
-void Workouts::setPlan(int p1)
-{
-    plan = p1;
-}
-
-void Workouts::setIndex(int i1)
-{
-    index = i1;
 }
 
 
