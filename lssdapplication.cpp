@@ -54,12 +54,27 @@ LSSDApplication::LSSDApplication(QWidget *parent)
 
     foods = FoodItems();
     breakfastscene = new QGraphicsScene;
+    image.load(errorim);
+    image = image.scaled(148, 148);
+    breakfastscene->addPixmap(image);
+    ui->breakfastgraphic->setScene(breakfastscene);
     lunchscene = new QGraphicsScene;
+    lunchscene->addPixmap(image);
+    ui->lunchgraphic->setScene(lunchscene);
     dinnerscene = new QGraphicsScene;
+    dinnerscene->addPixmap(image);
+    ui->dinnergraphic->setScene(dinnerscene);
+
     workouts = Workouts();
     workout1scene = new QGraphicsScene;
+    workout1scene->addPixmap(image);
+    ui->workout1graphic->setScene(workout1scene);
     workout2scene = new QGraphicsScene;
+    workout2scene->addPixmap(image);
+    ui->workout2graphic->setScene(workout2scene);
     workout3scene = new QGraphicsScene;
+    workout3scene->addPixmap(image);
+    ui->workout3graphic->setScene(workout3scene);
 }
 
 LSSDApplication::~LSSDApplication()
@@ -121,8 +136,8 @@ void LSSDApplication::recordinputs() {
     profile.setHeight(height);
     // weight
     initialweight = ui->weightinput->value();
-    workouts.setWeight(ui->weightinput->value());
     profile.setWeight(initialweight);
+    workouts.setWeight(initialweight);
     // workout preferences
     workouts.setAvailableWorkouts(workoutprefs);
     // goal
@@ -286,28 +301,20 @@ void LSSDApplication::on_createplanbutton_clicked()
 void LSSDApplication::updateplan(QString breakfast, QString lunch, QString dinner)
 {
     // foods
-    QPixmap image;
     image.load(foods.getFoodImage(breakfast));
-    image = image.scaledToHeight(148);
-    image = image.scaledToWidth(148);
-
-
+    image = image.scaled(148, 148);
     breakfastscene->addPixmap(image);
     ui->breakfastgraphic->setScene(breakfastscene);
     ui->breakfastname->setText(breakfast);
 
     image.load(foods.getFoodImage(lunch));
-    image = image.scaledToHeight(148);
-    image = image.scaledToWidth(148);
-
+    image = image.scaled(148, 148);
     lunchscene->addPixmap(image);
     ui->lunchgraphic->setScene(lunchscene);
     ui->lunchname->setText(lunch);
 
     image.load(foods.getFoodImage(dinner));
-    image = image.scaledToHeight(148);
-    image = image.scaledToWidth(148);
-
+    image = image.scaled(148, 148);
     dinnerscene->addPixmap(image);
     ui->dinnergraphic->setScene(dinnerscene);
     ui->dinnername->setText(dinner);
@@ -315,35 +322,27 @@ void LSSDApplication::updateplan(QString breakfast, QString lunch, QString dinne
     int inputcalories = foods.getFoodCalories(breakfast) +
                         foods.getFoodCalories(lunch) +
                         foods.getFoodCalories(dinner) +
-                        400; // snack allotment
+                        500; // snack allotment
     workouts.generateWorkouts(inputcalories);
     QList<QString> workoutslist = workouts.getRecommendations();
     QList<int> workoutsdurationslist = workouts.getTimeRecommendations();
 
-
     image.load(workouts.getWorkoutImage(workoutslist.at(0)));
-    image = image.scaledToHeight(148);
-    image = image.scaledToWidth(148);
-
+    image = image.scaled(148, 148);
     workout1scene->addPixmap(image);
     ui->workout1graphic->setScene(workout1scene);
     ui->workout1name->setText(workoutslist.at(0));
     ui->workout1duration->setText(QString::number(workoutsdurationslist.at(0))+" minutes");
 
     image.load(workouts.getWorkoutImage(workoutslist.at(1)));
-    image = image.scaledToHeight(148);
-    image = image.scaledToWidth(148);
-
+    image = image.scaled(148, 148);
     workout2scene->addPixmap(image);
     ui->workout2graphic->setScene(workout2scene);
-
     ui->workout2name->setText(workoutslist.at(1));
     ui->workout2duration->setText(QString::number(workoutsdurationslist.at(1))+" minutes");
 
     image.load(workouts.getWorkoutImage(workoutslist.at(2)));
-    image = image.scaledToHeight(148);
-    image = image.scaledToWidth(148);
-
+    image = image.scaled(148, 148);
     workout3scene->addPixmap(image);
     ui->workout3graphic->setScene(workout3scene);
     ui->workout3name->setText(workoutslist.at(2));
@@ -354,5 +353,4 @@ void LSSDApplication::on_currentweightvalue_valueChanged(int arg1)
 {
     ui->weightchangevalue->setValue(arg1-initialweight);
 }
-
 
