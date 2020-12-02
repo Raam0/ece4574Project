@@ -9,41 +9,62 @@ CreatePlan::CreatePlan(QWidget *parent) :
 
     foods = FoodItems();
 
-    breakfast1 = foods.getBreakfast(rand()%9);
+    int randOne = rand()%9;
+    int randTwo = rand()%9;
+    int randThree = rand()%9;
+    while(randTwo == randOne)
+        randTwo = rand()%9;
+    while((randThree == randOne) || (randThree == randTwo))
+        randThree = rand()%9;
+    breakfast1 = foods.getBreakfast(randOne);
     image.load(foods.getFoodImage(breakfast1));
     ui->breakfast1button->setIcon(image);
     ui->breakfast1name->setText(breakfast1);
-    breakfast2 = foods.getBreakfast(rand()%9);
+    breakfast2 = foods.getBreakfast(randTwo);
     image.load(foods.getFoodImage(breakfast2));
     ui->breakfast2button->setIcon(image);
     ui->breakfast2name->setText(breakfast2);
-    breakfast3 = foods.getBreakfast(rand()%9);
+    breakfast3 = foods.getBreakfast(randThree);
     image.load(foods.getFoodImage(breakfast3));
     ui->breakfast3button->setIcon(image);
     ui->breakfast3name->setText(breakfast3);
 
-    lunch1 = foods.getLunch(rand()%9);
+    randOne = rand()%9;
+    randTwo = rand()%9;
+    randThree = rand()%9;
+    while(randTwo == randOne)
+        randTwo = rand()%9;
+    while((randThree == randOne) || (randThree == randTwo))
+        randThree = rand()%9;
+    lunch1 = foods.getLunch(randOne);
     image.load(foods.getFoodImage(lunch1));
     ui->lunch1button->setIcon(image);
     ui->lunch1name->setText(lunch1);
-    lunch2 = foods.getLunch(rand()%9);
+    lunch2 = foods.getLunch(randTwo);
     image.load(foods.getFoodImage(lunch2));
     ui->lunch2button->setIcon(image);
     ui->lunch2name->setText(lunch2);
-    lunch3 = foods.getLunch(rand()%9);
+    lunch3 = foods.getLunch(randThree);
     image.load(foods.getFoodImage(lunch3));
     ui->lunch3button->setIcon(image);
     ui->lunch3name->setText(lunch3);
 
-    dinner1 = foods.getDinner(rand()%9);
+    randOne = rand()%9;
+    randTwo = rand()%9;
+    randThree = rand()%9;
+    while(randTwo == randOne)
+        randTwo = rand()%9;
+    while((randThree == randOne) || (randThree == randTwo))
+        randThree = rand()%9;
+    dinner1 = foods.getDinner(randOne);
     image.load(foods.getFoodImage(dinner1));
     ui->dinner1button->setIcon(image);
     ui->dinner1name->setText(dinner1);
-    dinner2 = foods.getDinner(rand()%9);
+    dinner2 = foods.getDinner(randTwo);
     image.load(foods.getFoodImage(dinner2));
     ui->dinner2button->setIcon(image);
     ui->dinner2name->setText(dinner2);
-    dinner3 = foods.getDinner(rand()%9);
+    dinner3 = foods.getDinner(randThree);
     image.load(foods.getFoodImage(dinner3));
     ui->dinner3button->setIcon(image);
     ui->dinner3name->setText(dinner3);
@@ -110,15 +131,23 @@ void CreatePlan::on_dinner3button_clicked()
 // shuffle slots
 void CreatePlan::on_breakfastshuffle_clicked()
 {
-    breakfast1 = foods.getBreakfast(rand()%9);
+    int randOne = rand()%9;
+    int randTwo = rand()%9;
+    int randThree = rand()%9;
+    while(randTwo == randOne)
+        randTwo = rand()%9;
+    while((randThree == randOne) || (randThree == randTwo))
+        randThree = rand()%9;
+
+    breakfast1 = foods.getBreakfast(randOne);
     image.load(foods.getFoodImage(breakfast1));
     ui->breakfast1button->setIcon(image);
     ui->breakfast1name->setText(breakfast1);
-    breakfast2 = foods.getBreakfast(rand()%9);
+    breakfast2 = foods.getBreakfast(randTwo);
     image.load(foods.getFoodImage(breakfast2));
     ui->breakfast2button->setIcon(image);
     ui->breakfast2name->setText(breakfast2);
-    breakfast3 = foods.getBreakfast(rand()%9);
+    breakfast3 = foods.getBreakfast(randThree);
     image.load(foods.getFoodImage(breakfast3));
     ui->breakfast3button->setIcon(image);
     ui->breakfast3name->setText(breakfast3);
@@ -126,15 +155,23 @@ void CreatePlan::on_breakfastshuffle_clicked()
 
 void CreatePlan::on_lunchshuffle_clicked()
 {
-    lunch1 = foods.getLunch(rand()%9);
+    int randOne = rand()%9;
+    int randTwo = rand()%9;
+    int randThree = rand()%9;
+    while(randTwo == randOne)
+        randTwo = rand()%9;
+    while((randThree == randOne) || (randThree == randTwo))
+        randThree = rand()%9;
+
+    lunch1 = foods.getLunch(randOne);
     image.load(foods.getFoodImage(lunch1));
     ui->lunch1button->setIcon(image);
     ui->lunch1name->setText(lunch1);
-    lunch2 = foods.getLunch(rand()%9);
+    lunch2 = foods.getLunch(randTwo);
     image.load(foods.getFoodImage(lunch2));
     ui->lunch2button->setIcon(image);
     ui->lunch2name->setText(lunch2);
-    lunch3 = foods.getLunch(rand()%9);
+    lunch3 = foods.getLunch(randThree);
     image.load(foods.getFoodImage(lunch3));
     ui->lunch3button->setIcon(image);
     ui->lunch3name->setText(lunch3);
@@ -142,15 +179,22 @@ void CreatePlan::on_lunchshuffle_clicked()
 
 void CreatePlan::on_dinnershuffle_clicked()
 {
-    dinner1 = foods.getDinner(rand()%9);
+    int randOne = rand()%9;
+    int randTwo = rand()%9;
+    int randThree = rand()%9;
+    while(randTwo == randOne)
+        randTwo = rand()%9;
+    while((randThree == randOne) || (randThree == randTwo))
+        randThree = rand()%9;
+    dinner1 = foods.getDinner(randOne);
     image.load(foods.getFoodImage(dinner1));
     ui->dinner1button->setIcon(image);
     ui->dinner1name->setText(dinner1);
-    dinner2 = foods.getDinner(rand()%9);
+    dinner2 = foods.getDinner(randTwo);
     image.load(foods.getFoodImage(dinner2));
     ui->dinner2button->setIcon(image);
     ui->dinner2name->setText(dinner2);
-    dinner3 = foods.getDinner(rand()%9);
+    dinner3 = foods.getDinner(randThree);
     image.load(foods.getFoodImage(dinner3));
     ui->dinner3button->setIcon(image);
     ui->dinner3name->setText(dinner3);

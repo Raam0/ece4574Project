@@ -39,6 +39,8 @@ private slots:
     void on_createplanbutton_clicked();
     void on_currentweightvalue_valueChanged(int arg1);
 
+    void on_resetButton_clicked();
+
 private:
     Ui::LSSDApplication *ui;
     QPixmap image;

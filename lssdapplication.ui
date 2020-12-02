@@ -2611,6 +2611,19 @@ weight</string>
            </property>
           </widget>
          </item>
+         <item>
+          <widget class="QPushButton" name="resetButton">
+           <property name="font">
+            <font>
+             <family>Georgia</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Reset</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
        <item>
@@ -2627,9 +2640,26 @@ weight</string>
         </widget>
        </item>
        <item>
+        <widget class="QLabel" name="targetCalLabel">
+         <property name="text">
+          <string>Target Calories: 0</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="mealCalLabel">
+         <property name="text">
+          <string>Calories From Meals: ---</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>

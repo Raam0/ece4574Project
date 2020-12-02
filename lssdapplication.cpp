@@ -158,6 +158,17 @@ void LSSDApplication::createmainpage() {
     ui->initialweightvalue->setValue(initialweight);
     ui->currentweightvalue->setValue(initialweight);
     ui->weightchangevalue->setValue(0);
+    ui->targetCalLabel->setText("Target Calories: " + QString::number(workouts.getTarget()));
+    ui->mealCalLabel->setText("Calories From Meals: ---");
+    ui->breakfastname->setText("---");
+    ui->lunchname->setText("---");
+    ui->dinnername->setText("---");
+    ui->workout1name->setText("---");
+    ui->workout2name->setText("---");
+    ui->workout3name->setText("---");
+    ui->workout1duration->setText("0 min");
+    ui->workout2duration->setText("0 min");
+    ui->workout3duration->setText("0 min");
 }
 
 
@@ -319,10 +330,11 @@ void LSSDApplication::updateplan(QString breakfast, QString lunch, QString dinne
     ui->dinnergraphic->setScene(dinnerscene);
     ui->dinnername->setText(dinner);
 
-    int inputcalories = foods.getFoodCalories(breakfast) +
-                        foods.getFoodCalories(lunch) +
-                        foods.getFoodCalories(dinner) +
-                        500; // snack allotment
+    int inputcalories = 2*foods.getFoodCalories(breakfast) +
+                        2*foods.getFoodCalories(lunch) +
+                        2*foods.getFoodCalories(dinner) +
+                        0; // snack allotment
+    ui->mealCalLabel->setText("Calories From Meals: " + QString::number(inputcalories));
     workouts.generateWorkouts(inputcalories);
     QList<QString> workoutslist = workouts.getRecommendations();
     QList<int> workoutsdurationslist = workouts.getTimeRecommendations();
@@ -354,3 +366,10 @@ void LSSDApplication::on_currentweightvalue_valueChanged(int arg1)
     ui->weightchangevalue->setValue(arg1-initialweight);
 }
 
+
+void LSSDApplication::on_resetButton_clicked()
+{
+    ui->datainputstack->setCurrentIndex(3);
+    ui->datainputbackground->show();
+    ui->mainstack->setCurrentIndex(1);
+}

@@ -235,3 +235,11 @@ int Workouts::getCals()
 {
     return calories;
 }
+
+int Workouts::getTarget()
+{
+    if(goal == LoseWeight)
+        return calories - (calories*0.1);
+    else
+        return calories;
+}
