@@ -70,7 +70,7 @@ void Workouts::generateWorkouts(int currentCals)
     //If plan = 0, they chose to lose weight
     if(goal == LoseWeight)
     {
-        target += 500;
+        target += (target*0.1);
     }
 
     //If they are already at less calories than the target, reccomend no exercise (0 minutes for each exercise)
