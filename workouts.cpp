@@ -243,3 +243,8 @@ int Workouts::getTarget()
     else
         return calories;
 }
+
+int Workouts::getPlan()
+{
+    return goal;
+}

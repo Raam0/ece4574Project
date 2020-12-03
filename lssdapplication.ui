@@ -2536,7 +2536,7 @@ weight</string>
         <x>10</x>
         <y>10</y>
         <width>581</width>
-        <height>661</height>
+        <height>663</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="mainpagelayout">
@@ -2640,18 +2640,44 @@ weight</string>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="targetCalLabel">
-         <property name="text">
-          <string>Target Calories: 0</string>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="bottomMargin">
+          <number>10</number>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="mealCalLabel">
-         <property name="text">
-          <string>Calories From Meals: ---</string>
-         </property>
-        </widget>
+         <item>
+          <widget class="QLabel" name="targetWeightLabel">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Target Weight: 0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="targetCalLabel">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Target Calories: 0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="mealCalLabel">
+           <property name="text">
+            <string>Calories From Meals: ---</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <spacer name="verticalSpacer">

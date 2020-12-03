@@ -46,6 +46,7 @@ public:
 
     int getCals();
     int getTarget();
+    int getPlan();
 
 private:
     std::map<QString, QString> workoutimages;
