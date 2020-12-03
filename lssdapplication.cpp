@@ -369,7 +369,7 @@ void LSSDApplication::on_currentweightvalue_valueChanged(int arg1)
 
 void LSSDApplication::on_resetButton_clicked()
 {
-    ui->datainputstack->setCurrentIndex(3);
+    ui->datainputstack->setCurrentIndex(0);
     ui->datainputbackground->show();
     ui->mainstack->setCurrentIndex(1);
 }
