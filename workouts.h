@@ -1,3 +1,9 @@
+/* workouts.cpp Raam Udayappan Virginia Tech
+* This holds the code for the workouts object. It contains the code load
+* and save profiles as well as calculate what workouts to reccomend
+* and for how long
+*/
+
 #ifndef WORKOUTS_H
 #define WORKOUTS_H
 
@@ -11,15 +17,15 @@
 #include <QDebug>
 #include "profile.h"
 
-const QString cyclingim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/cycling.jpg";
-const QString dancingim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/dancing.jpg";
-const QString hikingim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/hiking.jpg";
-const QString runningim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/running.jpg";
-const QString sportsim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/sports.jpg";
-const QString swimmingim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/swimming.jpg";
-const QString walkingim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/walking.jpg";
-const QString weightliftingim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/weightlifting.jpg";
-const QString yogaim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/yoga.jpg";
+const QString cyclingim = "C:/Users/Raam Udayappan/Desktop/ece4574Project-master/Images/cycling.jpg";
+const QString dancingim = "C:/Users/Raam Udayappan/Desktop/ece4574Project-master/Images/dancing.jpg";
+const QString hikingim = "C:/Users/Raam Udayappan/Desktop/ece4574Project-master/Images/hiking.jpg";
+const QString runningim = "C:/Users/Raam Udayappan/Desktop/ece4574Project-master/Images/running.jpg";
+const QString sportsim = "C:/Users/Raam Udayappan/Desktop/ece4574Project-master/Images/sports.jpg";
+const QString swimmingim = "C:/Users/Raam Udayappan/Desktop/ece4574Project-master/Images/swimming.jpg";
+const QString walkingim = "C:/Users/Raam Udayappan/Desktop/ece4574Project-master/Images/walking.jpg";
+const QString weightliftingim = "C:/Users/Raam Udayappan/Desktop/ece4574Project-master/Images/weightlifting.jpg";
+const QString yogaim = "C:/Users/Raam Udayappan/Desktop/ece4574Project-master/Images/yoga.jpg";
 
 enum {LoseWeight, MaintainWeight};
 

@@ -1,3 +1,8 @@
+/* workouts.cpp Raam Udayappan Virginia Tech
+* This holds the code for the workouts object. It contains the code load
+* and save profiles as well as calculate what workouts to reccomend
+* and for how long
+*/
 #include "workouts.h"
 
 Workouts::Workouts()

@@ -1,6 +1,10 @@
 #include "createplan.h"
 #include "ui_createplan.h"
 
+/* createplan.cpp Everyone Virginia Tech
+* Holds the code to randomly generate meals to choose from
+*/
+
 CreatePlan::CreatePlan(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CreatePlan)

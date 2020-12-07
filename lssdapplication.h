@@ -12,7 +12,7 @@
 #include "workouts.h"
 #include "createplan.h"
 
-const QString errorim = "C:/Users/Natalie Fleming/OneDrive/Documents/LSSD/Project/errorim.jpg";
+const QString errorim = "C:/Users/Raam Udayappan/Desktop/ece4574Project-master/Images/errorim.jpg";
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class LSSDApplication; }
