@@ -155,12 +155,9 @@ void LSSDApplication::recordinputs() {
 // performed when "finish" button pressed (final page of data input stack)
 void LSSDApplication::createmainpage() {
     ui->namelabel->setText("Hi " + name + "!");
-    // calculate goal net calories
-    ui->initialweightvalue->setValue(initialweight);
-    ui->currentweightvalue->setValue(initialweight);
-    ui->weightchangevalue->setValue(0);
-    ui->targetCalLabel->setText("Target Calories: " + QString::number(workouts.getTarget()));
-    ui->mealCalLabel->setText("Calories From Meals: ---");
+    ui->initialweightlabel->setText("Initial weight: " + QString::number(initialweight));
+    ui->targetCalLabel->setText("Target calories: " + QString::number(workouts.getTarget()));
+    ui->mealCalLabel->setText("Calories from meals: ---");
     ui->breakfastname->setText("---");
     ui->lunchname->setText("---");
     ui->dinnername->setText("---");
@@ -171,7 +168,7 @@ void LSSDApplication::createmainpage() {
     ui->workout2duration->setText("0 min");
     ui->workout3duration->setText("0 min");
     if(workouts.getPlan() == 0)
-        ui->targetWeightLabel->setText("Target Weight: " + QString::number(initialweight - (initialweight*0.1)));
+        ui->targetWeightLabel->setText("Target weight: " + QString::number(initialweight - (initialweight*0.1)));
     else
         ui->targetWeightLabel->setText("Target Weight: " + QString::number(initialweight));
 }
@@ -366,15 +363,32 @@ void LSSDApplication::updateplan(QString breakfast, QString lunch, QString dinne
     ui->workout3duration->setText(QString::number(workoutsdurationslist.at(2))+" minutes");
 }
 
-void LSSDApplication::on_currentweightvalue_valueChanged(int arg1)
-{
-    ui->weightchangevalue->setValue(arg1-initialweight);
-}
-
-
 void LSSDApplication::on_resetButton_clicked()
 {
+    foods = FoodItems();
+    breakfastscene = new QGraphicsScene;
+    image.load(errorim);
+    image = image.scaled(148, 148);
+    breakfastscene->addPixmap(image);
+    ui->breakfastgraphic->setScene(breakfastscene);
+    lunchscene = new QGraphicsScene;
+    lunchscene->addPixmap(image);
+    ui->lunchgraphic->setScene(lunchscene);
+    dinnerscene = new QGraphicsScene;
+    dinnerscene->addPixmap(image);
+    ui->dinnergraphic->setScene(dinnerscene);
     ui->datainputstack->setCurrentIndex(0);
     ui->datainputbackground->show();
     ui->mainstack->setCurrentIndex(1);
+
+    workouts = Workouts();
+    workout1scene = new QGraphicsScene;
+    workout1scene->addPixmap(image);
+    ui->workout1graphic->setScene(workout1scene);
+    workout2scene = new QGraphicsScene;
+    workout2scene->addPixmap(image);
+    ui->workout2graphic->setScene(workout2scene);
+    workout3scene = new QGraphicsScene;
+    workout3scene->addPixmap(image);
+    ui->workout3graphic->setScene(workout3scene);
 }

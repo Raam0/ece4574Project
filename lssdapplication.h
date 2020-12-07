@@ -37,8 +37,6 @@ private slots:
     void on_backbutton_clicked();
     // slots for main page
     void on_createplanbutton_clicked();
-    void on_currentweightvalue_valueChanged(int arg1);
-
     void on_resetButton_clicked();
 
 private:
