@@ -1,3 +1,8 @@
+/* lssdapplication.h Everyone Virginia Tech
+* Header file for the main code that runs the application
+* and edits the UI
+*/
+
 #ifndef LSSDAPPLICATION_H
 #define LSSDAPPLICATION_H
 

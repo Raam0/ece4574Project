@@ -1,3 +1,8 @@
+/* createplan.h Everyone Virginia Tech
+* Header file for createplan.cpp. Contains prototypes
+* for functions used in meal plan generation
+*/
+
 #ifndef CREATEPLAN_H
 #define CREATEPLAN_H
 
