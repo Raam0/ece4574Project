@@ -1,3 +1,7 @@
+/* foodItems.h Tim Paul & Natalie Flemming Virginia Tech
+* The foodItems class will store the
+* food items and calculate the calories for the food items
+*/
 #ifndef FOODITEMS_H
 #define FOODITEMS_H
 

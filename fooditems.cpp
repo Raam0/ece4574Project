@@ -1,3 +1,5 @@
+// foodItems.cpp Tim Paul & Natalie Flemming Virginia Tech
+
 #include "fooditems.h"
 
 FoodItems::FoodItems()

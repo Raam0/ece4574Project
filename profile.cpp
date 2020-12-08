@@ -1,3 +1,5 @@
+// profile.cpp Tim Paul Virginia Tech
+
 #include "profile.h"
 
 

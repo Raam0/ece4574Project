@@ -1,3 +1,8 @@
+/* profile.h Tim Paul Virginia Tech
+* The methods in the profile class
+* will be used to store user info
+* and calculate the EER value
+ */
 #ifndef PROFILE_H
 #define PROFILE_H
 
