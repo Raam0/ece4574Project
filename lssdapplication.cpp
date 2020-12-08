@@ -1,3 +1,8 @@
+/* lssdapplication.cpp Everyone Virginia Tech
+* Contains code for UI for the program. Controls all inputs
+* and outputs.
+*/
+
 #include "lssdapplication.h"
 #include "ui_lssdapplication.h"
 
