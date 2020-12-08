@@ -168,7 +168,7 @@ void LSSDApplication::createmainpage() {
     ui->workout2duration->setText("0 min");
     ui->workout3duration->setText("0 min");
     if(workouts.getPlan() == 0)
-        ui->targetWeightLabel->setText("Target weight: " + QString::number(initialweight - (initialweight*0.1)));
+        ui->targetWeightLabel->setText("Target weight: " + QString::number(initialweight - (initialweight*0.05)));
     else
         ui->targetWeightLabel->setText("Target Weight: " + QString::number(initialweight));
 }
