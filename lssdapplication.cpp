@@ -143,7 +143,7 @@ void LSSDApplication::recordinputs() {
     // goal
     if (ui->loseweightrb->isChecked()) {
         workouts.setGoal(LoseWeight);
-        profile.setWeight(initialweight-(initialweight*0.1));
+        profile.setWeight(initialweight-(initialweight*0.05));
     }
     else {
         workouts.setGoal(MaintainWeight);
